@@ -55,6 +55,7 @@
 
   & > .facebook > a::before,
   & > .twitter > a::before,
+  & > .weibo > a::before,
   & > .github > a::before {
     content: '';
     vertical-align: middle;
@@ -72,11 +73,16 @@
     @include ion-logo-github(16px, #334455);
   }
 
+  & > .weibo > a::before {
+    @include ion-logo-weibo(16px, #334455);
+  }
+
   & > .github > a:hover::before {
     background-image: ion-logo-github-image(white);
   }
 
   & > .facebook > a::before,
+  & > .weibo > a::before,
   & > .twitter > a::before {
     width: 32px;
     height: 32px;

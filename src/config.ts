@@ -1,8 +1,10 @@
-const isProd = Boolean(import.meta.env.PROD)
+// const isProd = Boolean(import.meta.env.PROD)
+
+const isProd = false
 
 export const site = {
-  url: 'https://devhints.io',
-  title: 'Devhints.io cheatsheets'
+  url: 'https://tips.yuez.me',
+  title: '开发速查表'
 } as const
 
 export const etc = {
@@ -10,7 +12,7 @@ export const etc = {
 } as const
 
 export const disqus = {
-  enabled: true,
+  enabled: false,
   host: 'devhints.disqus.com'
 } as const
 
@@ -20,7 +22,7 @@ export const googleAnalytics = {
 } as const
 
 export const github = {
-  repositoryUrl: 'https://github.com/rstacruz/cheatsheets',
+  repositoryUrl: 'https://github.com/zgs225/cheatsheets',
   branch: 'master'
 } as const
 
@@ -66,6 +68,7 @@ export const categories = [
 ]
 
 export const announcement = {
+  show: false,
   id: '2023-12-14',
   title: `We're on Twitter ♥️`,
   body: [

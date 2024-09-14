@@ -16,7 +16,7 @@ import SearchForm from '~/components/V2017Sheet/SearchForm.astro'
 import CarbonBox from '~/components/V2017/CarbonBox.astro'
 import SEO from '~/components/SEO/SEO.astro'
 import { typeStyles } from '~/styles/CommonStyles'
-import { urls } from '~/config'
+import { urls, announcement } from '~/config'
 
 const pages = await getPages()
 const pageCategories = getPagesByCategory(pages)
@@ -25,11 +25,11 @@ const recentPages = getRecentPages(pages, { maxCount: 18 })
 
 const seoProps = getSEOPropsForHome()
 const t = {
-  title: "Rico's cheatsheets",
-  tagline: `Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written.`,
-  recentlyUpdated: 'Recently updated',
-  seeSomethingMissing: 'See something missing?',
-  requestCheatsheet: 'Request cheatsheet'
+  title: '开发速查表',
+  tagline: `开发者的速查宝典，简化开发，速查表伴你左右`,
+  recentlyUpdated: '最近更新',
+  seeSomethingMissing: '未找到我需要的速查表?',
+  requestCheatsheet: '申请速查表'
 }
 
 const styles = {
@@ -102,7 +102,7 @@ const headingStyles = {
       </div>
     </div>
   </div>
-  <Announcements />
+  {announcement.show ? <Announcements /> : null}
 </BaseLayout>
 
 <style lang="scss" is:global>

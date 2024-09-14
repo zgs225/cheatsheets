@@ -11,10 +11,11 @@ const page = props.page
 const url = getUrlFromPage(page, Astro.site)
 
 const t = {
-  facebookShare: 'Share on Facebook',
-  twitterShare: 'Share on Twitter',
-  sheetDescription: 'The ultimate cheatsheet for {title}',
-  defaultDescription: 'Ridiculous collection of web development cheatsheets'
+  facebookShare: '分享到 Facebook',
+  twitterShare: '分享到 Twitter',
+  weiboShare: '分享到微博',
+  sheetDescription: ' 开发速查表 - {title}',
+  defaultDescription: '专为开发者设计的请求速查表，随时随地查阅，提升工作效率。'
 }
 
 const title = page?.frontmatter?.title
@@ -29,6 +30,8 @@ const tweet = `${description} ${url}`
 const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
 // prettier-ignore
 const twitterURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`
+// prettier-ignore
+const weiboURL = `https://service.weibo.com/share/share.php?url=${encodeURIComponent(url)}&title=${encodeURIComponent(description)}`
 ---
 
 <ul class={`social-list ${props.class ?? ''}`}>
@@ -46,6 +49,15 @@ const twitterURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(t
       href={twitterURL}
       target="share"
       aria-label={t.twitterShare}
+      role="button"><span class="text"></span></a
+    >
+  </li>
+  {' '}
+  <li class="weibo link hint--bottom" data-hint={t.weiboShare}>
+    <a
+      href={weiboURL}
+      target="share"
+      aria-label={t.weiboShare}
       role="button"><span class="text"></span></a
     >
   </li>
